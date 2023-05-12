@@ -26,8 +26,34 @@ namespace Task1.Business
             var list = _userRepo.Login(user);
             return _mapper.Map<List<UserEmpVM>>(list);
         }
+        public async Task<DocumentDataVM> AddDoc(DocumentData documentData)
+        {
+            var A = await _userRepo.AddDoc(documentData);
+            return _mapper.Map<DocumentDataVM>(A);
+        }
+        /*public async Task<SignUpVM> Register(SignUpVM Reg)
+        {
+            var list = await _BusBookingRepository.Register(_mapper.Map<SignUp>(Reg));
+            return _mapper.Map<SignUpVM>(list);
+        }*/
+        public async Task<DocumentDataVM> DeleteDoc(int DocId)
+        {
+            var A = await _userRepo.DeleteDoc(DocId);
+            return _mapper.Map<DocumentDataVM>(A);
+        }
+        public List<DocumentDataVM> GetDocuments()
+        {
+            List<DocumentData> list = _userRepo.GetDocuments();
+            return _mapper.Map<List<DocumentDataVM>>(list);
+        }
 
-      
+        public List<DocumentDataVM> GetFilePath(string DocName)
+        {
+            List<DocumentData> list = _userRepo.GetFilePath(DocName);
+            return _mapper.Map<List<DocumentDataVM>>(list);
+        }
+
+
 
     }
 }

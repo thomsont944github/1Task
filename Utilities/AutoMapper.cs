@@ -13,6 +13,8 @@ namespace Task1.Utilities
          public AutoMapper()
         {
             CreateMap<UserEmp, UserEmpVM>().ReverseMap();
+            CreateMap<DocumentData, DocumentDataVM>().ReverseMap();
+
         }
     }
 }

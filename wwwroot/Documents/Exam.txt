@@ -1,0 +1,179 @@
+What is Lazy Loading?
+Lazy loading (also called on-demand loading) is an optimization technique for the online content, be it a website or a web app.
+Instead of loading the entire web page and rendering it to the user in one go as in bulk loading,the concept of lazy loading assists in loading
+only the required section and delays the 
+remaining, until it is needed by the user.
+
+Advantages of Lazy loading:
+On-demand loading reduces time consumption and memory usage thereby optimizing content delivery. As only a fraction of the web page,
+which is required, is loaded first thus,
+the time taken is less and the loading of rest of the section is delayed which saves storage. All of this enhances the user’s experience as the 
+requested content is fed in no time.
+Unnecessary code execution is avoided.
+Optimal usage of time and space resources makes it a cost-effective approach from the point of view of business persons. (website owners)
+
+Disadvantages of Lazy loading:
+Firstly, the extra lines of code, to be added to the existing ones, to implement lazy load makes the code a bit complicated.
+Secondly, lazy loading may affect the website’s ranking on search engines sometimes, due to improper indexing of the unloaded content.
+
+Conclusion: Though there are certain pitfalls of lazy loading yet the big advantages, as optimal utilization of the two major resources 
+(time & space) and many more make us overlook its disadvantages.
+.............................................................................................................................................
+2)EXPLAIN ABOUT HTTP CLIENT?
+
+      *The Hypertext Transfer Protocol (HTTP) is an application-level protocol for distributed, collaborative, hypermedia information systems.
+ This is the foundation for data communication for the World Wide Web (i.e. internet) since 1990. 
+HTTP is a generic and stateless protocol which can be used for other purposes as well using extensions of its request methods, error codes, and headers.
+
+*Basic Features
+     >HTTP is connectionless: The HTTP client, i.e., a browser initiates an HTTP request and after a request is made, 
+the client waits for the response. 
+The server processes the request and sends a response back after which client disconnect the connection
+
+    >HTTP is connectionless: The HTTP client, i.e., a browser initiates an HTTP request and after a request is made, the client waits for the response. 
+The server processes the request and sends a response back after which client disconnect the connection
+
+    >HTTP is stateless: As mentioned above, HTTP is connectionless and it is a direct result of HTTP being a stateless protocol. The server and client are aware of each other only during a current request. 
+Afterwards, both of them forget about each other. 
+
+...........................................................................................................................................
+What is a Service?
+In AngularJS, a service is a function, or object, that is available for, and limited to, your AngularJS application.
+AngularJS has about 30 built-in services. One of them is the $location service.
+In AngularJS you can make your own service, or use one of the many built-in services.
+
+Why use Services?
+For many services, like the $location service, it seems like you could use objects that are already in the DOM, like the window.location object,
+and you could, but it would have some limitations, at least for your AngularJS application.
+
+AngularJS constantly supervises your application, and for it to handle changes and events properly, AngularJS prefers that you use the $location
+service instead of the window.location object.
+
+The $http service
+The $http service is one of the most common used services in AngularJS applications. The service makes a request to the server, and lets your 
+application handle the response.
+The $timeout service
+The $timeout service is AngularJS' version of the window.setTimeout function.
+The $interval service
+The $interval service is AngularJS' version of the window.setInterval function.
+.............................................................................................................................................
+What are Angular Pipes?
+   *Angular Pipes transform the output. You can think of them as makeup rooms where they beautify the data into a more desirable format. 
+They do not alter the data but change how they appear to the user.
+    *Technically, pipes are simple functions designed to accept an input value, process, and return a transformed value as the output. Angular supports many built-in pipes.
+ However, you can also create custom pipes that suit your requirements. Some salient features include:
+      >Pipes are defined using the pipe “|” symbol. 
+      >Pipes can be chained with other pipes.
+      >Pipes can be provided with arguments by using the colon (:) sign.
+*Some commonly used predefined Angular pipes are: 
+     >DatePipe: Formats a date value.
+     >UpperCasePipe: Transforms text to uppercase.
+     >LowerCasePipe: Transforms text to lowercase.
+     >CurrencyPipe: Transforms a number to the currency string.
+     >PercentPipe: Transforms a number to the percentage string. 
+     >DecimalPipe: Transforms a number into a decimal point string.
+..............................................................................................................................................
+How AuthGuard Works?
+
+
+AuthGuard is used to protect the routes from unauthorized access
+
+Angular Auth Guards add authentication layer which helps in preventing loading of components in various scenarios like Login authentication,
+permission-based authentication etc. We can add checks before loading components using Angular guards which are of four types
+
+CanActivate: Checks route navigation before the component is loaded.
+
+CanActivateChild: Checks route children navigation before the component is loaded.
+
+CanDeactivate: Checks navigation from the current route eg leaving the partially filled form.
+
+Resolve: Resolve loads/ retrieves data before the route is activated.
+
+CanLoad: Checks to see if a user can route to a module that lazy-loaded.
+.............................................................................................................................................
+6)EXPLAIN ABOUT AGILE?
+     *Agile is a collection of principles used in software development and project management. 
+Agile focuses on enabling teams to deliver work in small, workable increments, thus delivering value to their customers with ease.
+ Evaluation of the requirements, plans, and results take place continuously. 
+This helps the team in responding to changes in a quick manner. 
+
+*The major principles of Agile are detailed in the Agile manifesto. Created in early 2001, the Agile manifesto details the different values 
+and principles that embody the process.
+
+The manifesto states: 
+        
+    >Individuals and Interactions OVER Process and Tools
+
+   >Working Products OVER Comprehensive Documentation
+
+   >Customer Collaboration OVER Contract Negotiation
+
+   >Responding to Changes OVER Following a Plan
+
+Agile Methodologies:
+    >Extreme Programming
+    >KANBAN
+    >LEAN
+    >SCRUM
+    >Crystal 
+
+
+7)EXPLAIN ABOUT SCRUM?
+       *Scrum is the type of Agile framework. It is a framework within which people can address complex adaptive 
+problem while productivity and creativity of delivering product is at highest possible values. Scrum uses Iterative process.
+
+Silent features of Scrum are:
+
+Scrum is light-weighted framework
+Scrum emphasizes self-organization
+Scrum is simple to understand
+Scrum framework help the team to work together
+
+>Advantage of using Scrum framework:
+
+Scrum framework is fast moving and money efficient.
+Scrum framework works by dividing the large product into small sub-products. It’s like a divide and conquer strategy
+In Scrum customer satisfaction is very important.
+Scrum is adaptive in nature because it have short sprint.
+As Scrum framework rely on constant feedback therefore the quality of product increases in less amount of time
+
+>Disadvantage of using Scrum framework:
+
+Scrum framework do not allow changes into their sprint.
+Scrum framework is not fully described model. If you wanna adopt it you need to fill in the framework with
+ your own details like Extreme Programming(XP), Kanban, DSDM.
+It can be difficult for the Scrum to plan, structure and organize a project that lacks a clear definition.
+The daily Scrum meetings and frequent reviews require substantial resources
+
+
+
+8)EXPLAIN ABOUT KANBAN?
+     *Kanban is a popular Lean workflow management method for defining, managing, and improving services that deliver knowledge work.
+ It helps you visualize work, maximize efficiency, and improve continuously. Work is represented on Kanban boards, 
+allowing you to optimize work delivery across multiple teams and handle even the most complex projects in a single environment.
+
+	Originating from manufacturing, it later became a territory claimed by Agile software development teams. 
+Recently, it started getting recognized by business units across various industries. 
+      Before exploring the Kanban values in more detail, we’d like to establish that the method in the shape and form we embrace and use 
+today emerged due to many people's collaborative efforts. The expanding Kanban community should acknowledge these ideas and contributions as such.
+
+
+
+9)DIFFERENCE BETWEEN AGILE,SCRUM AND KANBAN
+      By now, you can likely gauge that Agile is more of an umbrella term for project management methodologies. Its purpose is to segregate larger projects into smaller portions for easier handling.
+
+Agile has been a go-to methodology for the software development industry for years. However, changing times are seeing its implementation in several other enterprises as well.
+
+Agile is the guiding force behind other methodologies like Scrum and Kanban. So, in essence, Kanban and Scrum are the practices to adopt when you want to work in an agile manner.
+
+It is easier to compare Scrum and Kanban’s differences since the two are distinct agile project management methodologies. We will be getting into the subtle differences between the two later. First, consider their similarities.
+
+Both Scrum and Kanban employs board for people to segregate work into three categories:
+
+Work to be done
+Work in progress
+Work done
+
+
+
+

@@ -1,0 +1,299 @@
+Create
+public bool AddCategory(string categoryName)
+{
+     bool status = false;
+     Categories category = new Categories();
+     category.CategoryName = categoryName;
+     try
+     {
+          //context.Categories.Add(category);
+          context.Add<Categories>(category);
+          status = true;
+     }
+     catch (Exception)
+     {
+          status = false;
+     }           
+     return status;
+}
+
+
+static void Main(string[] args)
+{
+      QuickKartRepository repository = new QuickKartRepository();
+      bool result = repository.AddCategory("Books");
+      if (result)
+      {
+           Console.WriteLine("New category added successfully");
+      }
+      else
+      {
+           Console.WriteLine("Something went wrong. Try again!");
+      }
+}
+
+
+public bool AddProductsUsingAddRange(params Products[] products)
+{
+     bool status = false;
+     try
+     {
+          context.Products.AddRange(products);
+          context.SaveChanges();
+          status = true;
+     }
+     catch (Exception ex)
+     {
+          status = false;
+     }
+     return status;
+}
+
+
+static void Main(string[] args)
+{
+     QuickKartRepository repository = new QuickKartRepository();
+     Products productOne = new Products();
+     productOne.ProductId = "P158";
+     productOne.ProductName = "The Ship of Secrets - Geronimo Stilton";
+     productOne.CategoryId = 8;
+     productOne.Price = 450;
+     productOne.QuantityAvailable = 10;
+     Products productTwo = new Products();
+     productTwo.ProductId = "P159";
+     productTwo.ProductName = "101 Nursery Rhymes";
+     productTwo.CategoryId = 8;
+     productTwo.Price = 700;
+     productTwo.QuantityAvailable = 10;
+     bool result = repository.AddProductsUsingAddRange(productOne, productTwo);
+     if (result)
+     {
+          Console.WriteLine("Product details added successfully!");
+     }
+     else
+     {
+          Console.WriteLine("Some error occurred. Try again!!");
+     }
+}
+
+
+.................................................................................
+Update
+
+public bool UpdateCategory(byte categoryId, string newCategoryName)
+{
+     bool status = false;
+     Categories category = context.Categories.Find(categoryId);
+     try
+     {
+           if (category != null)
+           {
+               category.CategoryName = newCategoryName;
+               context.SaveChanges();
+               status = true;
+           }
+           else
+           {
+               status = false;
+           }
+      }
+      catch (Exception)
+      {
+           status = false;
+      }           
+      return status;
+}
+
+
+static void Main(string[] args)
+{
+     QuickKartRepository repository = new QuickKartRepository();
+     bool result = repository.UpdateCategory(8, "Stationery");
+     if (result)
+     {
+         Console.WriteLine("Category details updated successfully");
+     }
+     else
+     {
+         Console.WriteLine("Something went wrong. Try again!");
+     }
+}
+
+
+public int UpdateProduct(string productId, decimal price)
+{
+     int status = -1;
+     try
+     {
+          Products product = context.Products.Find(productId);
+          product.Price = price;
+          using (var newContext = new QuickKartDBContext())
+          {
+               newContext.Products.Update(product);
+               newContext.SaveChanges();
+               status = 1;
+          }
+     }
+     catch (Exception)
+     {
+          status = -99;
+     }
+     return status;
+}
+
+
+class Program
+{
+     static void Main(string[] args)
+     {
+            QuickKartRepository repository = new QuickKartRepository();
+            int status = repository.UpdateProduct("P159", 1000);
+            if (status == 1)
+            {
+                   Console.WriteLine("Product price updated successfully!");
+            }
+            else
+            {
+                   Console.WriteLine("Some error occurred. Try again!!");
+            }
+     }
+}
+
+
+public int UpdateProductsUsingUpdateRange(byte categoryId, int quantityProcured)
+{
+     int status = -1;
+     try
+     {
+          List<Products> productList= context.Products.Where(p => p.CategoryId == categoryId).ToList();
+          foreach(var products in productList)
+          {
+                products.QuantityAvailable += quantityProcured;
+          }
+          using (var newContext = new QuickKartDBContext())
+          {
+                newContext.UpdateRange(productList);
+                newContext.SaveChanges();
+                status = 1;
+          }
+     }
+     catch(Exception)
+     {
+          status = -99;
+     }
+     return status;
+}
+
+
+class Program
+{
+     static void Main(string[] args)
+     {
+            QuickKartRepository repository = new QuickKartRepository();
+            int status = repository.UpdateProductsUsingUpdateRange(8, 10);
+            if (status == 1)
+            {
+                   Console.WriteLine("Products updated successfully!");
+            }
+            else
+            {
+                  Console.WriteLine("Some error occurred. Try again!!");
+            }
+     }
+}
+
+..........................................................................................
+Delete
+
+public bool DeleteProduct(string productId)
+{
+      Products product = null;
+      bool status = false;
+      try
+      {
+                product = context.Products.Find(productId);
+                if (product != null)
+                {
+                    context.Products.Remove(product);
+                    context.SaveChanges();
+                    status = true;
+                }
+                else
+                {
+                    status = false;
+                }
+      }
+      catch (Exception)
+      {
+             status = false;
+      }
+      return status;
+}
+
+
+static void Main(string[] args)
+{
+      QuickKartRepository repository = new QuickKartRepository();
+      bool status = repository.DeleteProduct("P159");
+      if (status)
+      {
+          Console.WriteLine("Product details deleted successfully!");
+      }
+      else
+      {
+          Console.WriteLine("Some error occurred. Try again!!");
+      }
+}
+
+
+
+public bool DeleteProductsUsingRemoveRange(string subString)
+{
+     bool status = false;
+     try
+     {
+             var deleteProducts = context.Products.Where(p => p.ProductName.Contains(subString));
+             context.Products.RemoveRange(deleteProducts);
+             context.SaveChanges();
+             status = true;
+     }
+     catch (Exception ex)
+     {
+         status = false;
+     }
+     return status ;
+}
+
+
+class Program
+{
+     static void Main(string[] args)
+     {
+           QuickKartRepository repository = new QuickKartRepository();
+            bool status = repository.DeleteProductsUsingRemoveRange("BMW");
+            if(status)
+            {
+                Console.WriteLine("Products deleted successfully");
+            }
+            else
+            {
+                Console.WriteLine("Some error occurred.Try again!!");
+            }
+     }
+}
+
+..........................................................................................................
+Scaffold-DbContext -Connection "Data Source =.;Initial Catalog=QuickKartDB;Integrated Security=true" -Provider Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
+
+
+Scaffold-DbContext -Connection "Data Source =(localdb)\MSSQLLocalDB;Initial Catalog=QuickKartDB;Integrated Security=true" -Provider Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
+
+
+
+
+
+
+
+
+
+

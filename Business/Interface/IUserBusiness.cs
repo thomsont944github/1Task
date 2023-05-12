@@ -10,5 +10,9 @@ namespace Task1.Business.Interface
     public interface IUserBusiness
     {
         List<UserEmpVM> Login(LoginRequest user);
+        List<DocumentDataVM> GetDocuments();
+        List<DocumentDataVM> GetFilePath(string DocName);
+        Task<DocumentDataVM> AddDoc(DocumentData documentData);
+        Task<DocumentDataVM> DeleteDoc(int DocId);
     }
 }

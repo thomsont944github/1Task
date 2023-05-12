@@ -17,6 +17,7 @@ namespace Task1.Models
         {
         }
 
+        public virtual DbSet<DocumentData> DocumentData { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<UserInfo> UserInfos { get; set; }
 
@@ -31,6 +32,19 @@ namespace Task1.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<DocumentData>(entity =>
+            {
+                entity.HasKey(e => e.DocId);
+
+                entity.Property(e => e.DocName)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.DocPath)
+                    .HasMaxLength(80)
+                    .IsFixedLength(true);
+            });
+
             modelBuilder.Entity<Employee>(entity =>
             {
                 entity.HasKey(e => e.EmpId);

@@ -5,15 +5,31 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\Documents\10th_marklist.pdf" />
+    <None Include="wwwroot\Documents\Consolidate_Certificate.pdf" />
+    <None Include="wwwroot\Documents\Entity FrameWork Core.txt" />
+    <None Include="wwwroot\Documents\Events.txt" />
+    <None Include="wwwroot\Documents\Exam.txt" />
+    <None Include="wwwroot\Documents\Inter_marklist.pdf" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="12.0.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
     <PackageReference Include="AutoWrapper.Core" Version="4.5.0" />
+    <PackageReference Include="Grpc.Core" Version="2.46.6" />
+    <PackageReference Include="iTextSharp" Version="5.5.13.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="SharpZipLib.NETStandard" Version="1.0.7" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Documents\" />
   </ItemGroup>
 
 </Project>
