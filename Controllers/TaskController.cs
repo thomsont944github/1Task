@@ -138,8 +138,6 @@ namespace Task1.Controllers
                 "C:/Users/Thomson/source/repos/Task1/wwwroot/Documents/Events.txt",
                 "C:/Users/Thomson/source/repos/Task1/wwwroot/Documents/Exam.txt"
             };
-
-
             using (var memoryStream = new MemoryStream())
             {
                 using (var zipArchive = new ZipArchive(memoryStream, ZipArchiveMode.Create, true))
@@ -149,14 +147,11 @@ namespace Task1.Controllers
                         zipArchive.CreateEntryFromFile(file, Path.GetFileName(file));
                     }
                 }
-
                 memoryStream.Position = 0;
                 File(memoryStream, "application/zip", "my.zip");
                 return "test";
-
             }
         }
-
         /*        
         [HttpGet]
         [Route("GetFilePath")]
